@@ -1,0 +1,14 @@
+quarkus:
+  arc:
+    dev-mode:
+      monitoring-enabled: false
+telegram-bot:
+  telegram-config:
+    bot-username: ${TELEGRAM_BOT_USERNAME}
+    bot-token: ${TELEGRAM_BOT_TOKEN}
+    proxy:
+      enable: false
+      host: 195.2.81.193
+      port: 1080
+      username: Venture8412
+      password: eD2P5N8N6Go95h

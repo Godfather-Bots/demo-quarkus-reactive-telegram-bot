@@ -1,0 +1,43 @@
+plugins {
+    id 'java'
+    id 'io.quarkus'
+}
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
+
+ext {
+    telegramLibVersion = "0.0.36"
+}
+
+dependencies {
+    implementation(
+            enforcedPlatform("${quarkusPlatformGroupId}:${quarkusPlatformArtifactId}:${quarkusPlatformVersion}"),
+            "io.quarkus:quarkus-arc",
+            "io.quarkus:quarkus-config-yaml",
+
+            "dev.struchkov.godfather.telegram:telegram-consumer-quarkus:$telegramLibVersion",
+            "dev.struchkov.godfather.telegram:telegram-core-quarkus:$telegramLibVersion",
+            "dev.struchkov.godfather.telegram:telegram-sender-quarkus:$telegramLibVersion"
+    )
+
+}
+
+group 'dev.struchkov.example'
+version '1.0-SNAPSHOT'
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
+
+compileJava {
+    options.encoding = 'UTF-8'
+    options.compilerArgs << '-parameters'
+}
+
+compileTestJava {
+    options.encoding = 'UTF-8'
+}
